@@ -11,13 +11,22 @@
 
 from Mosh Hamedani
 
-##Why do wo need delegates?
+## hy do wo need delegates?
 
 For designing extensible and flexible applications (eg frameworks)
 
+## 使用
+1. 定義委派
+
+    delegate void/回傳型別 MyDelegate(方法簽章) 
+
+2. 委派方法s
+
+3. 透過委派執行方法
+
 ## 運作
 
-在 .NET 每一個我們透過 Delegate 關鍵字自訂的 Delegate 本質上是一個 class，其繼承自 System.MulticastDelegate，而 multicast Delegate 是繼承自 System.Delegate。
+在 .NET 每一個我們透過 Delegate 關鍵字自訂的 Delegate ，本質上是一個 class，其繼承自 System.MulticastDelegate，而 multicast Delegate 是繼承自 System.Delegate。
 
 如果自訂 Delegate 只有參考到一個類別裡面的方法，則 Delegate class 裡面的屬性的 Method 跟 Target ，
 Method: 代表 Delegate 指向的方法。
