@@ -9,8 +9,8 @@ namespace DelegateSample
             var photoProcessor = new PhotoProcessor();
             var filters = new PhotoFilters();
 
-            // 符合委派定義的方法 指向給委派變數
-            PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            // 使用.NET generic Action Delegate
+            System.Action<Photo> filterHandler = filters.ApplyBrightness;
             filterHandler += filters.ApplyContrast;
             filterHandler += RemoveRedEye;
 

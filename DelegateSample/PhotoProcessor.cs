@@ -1,11 +1,10 @@
-﻿namespace DelegateSample
+﻿using System;
+
+namespace DelegateSample
 {
     public class PhotoProcessor
     {
-        // 定義委派
-        public delegate void PhotoFilterHandler(Photo photo);
-
-        public void Process(string path, PhotoFilterHandler filterHandler)
+        public void Process(string path, Action<Photo> filterHandler)
         {
             var photo = Photo.Load(path);
 
