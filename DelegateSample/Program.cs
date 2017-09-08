@@ -8,8 +8,10 @@ namespace DelegateSample
     {
         static void Main(string[] args)
         {
-            TestDelegate testDelegate = TestMethod;
-            Console.WriteLine(testDelegate());
+            //TestDelegate testDelegate = TestMethod;
+            //Console.WriteLine(testDelegate());
+            var photoProcessor = new PhotoProcessor();
+            photoProcessor.Process("test");
         }
 
         private static string TestMethod()
