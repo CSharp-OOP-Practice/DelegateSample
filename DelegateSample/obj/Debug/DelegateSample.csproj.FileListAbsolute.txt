@@ -1,0 +1,5 @@
+E:\C#\課程OOP\DelegateSample\DelegateSample\bin\Debug\DelegateSample.exe
+E:\C#\課程OOP\DelegateSample\DelegateSample\bin\Debug\DelegateSample.pdb
+E:\C#\課程OOP\DelegateSample\DelegateSample\obj\Debug\DelegateSample.csprojResolveAssemblyReference.cache
+E:\C#\課程OOP\DelegateSample\DelegateSample\obj\Debug\DelegateSample.exe
+E:\C#\課程OOP\DelegateSample\DelegateSample\obj\Debug\DelegateSample.pdb
