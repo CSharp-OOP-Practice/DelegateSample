@@ -11,5 +11,6 @@
 
 from Mosh Hamedani
 
-
+### Why do wo need delegates?
+For designing extensible and flexible applications (eg frameworks)
 
