@@ -2,14 +2,15 @@
 {
     public class PhotoProcessor
     {
-        public void Process(string path)
+        // 定義委派
+        public delegate void PhotoFilterHandler(Photo photo);
+
+        public void Process(string path, PhotoFilterHandler filterHandler)
         {
             var photo = Photo.Load(path);
 
-            var filter = new PhotoFilters();
-            filter.ApplyBrightness(photo);
-            filter.ApplyContrast(photo);
-            filter.Resize(photo);
+            // 執行委派參數有參考到的方法
+            filterHandler(photo);
 
             photo.Save();
         }

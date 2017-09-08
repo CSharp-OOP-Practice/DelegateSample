@@ -2,21 +2,19 @@
 
 namespace DelegateSample
 {
-    delegate string TestDelegate();
-
     class Program
     {
         static void Main(string[] args)
         {
-            //TestDelegate testDelegate = TestMethod;
-            //Console.WriteLine(testDelegate());
             var photoProcessor = new PhotoProcessor();
-            photoProcessor.Process("test");
-        }
+            var filters = new PhotoFilters();
 
-        private static string TestMethod()
-        {
-            return "測試委派成功";
+            // 符合委派定義的方法 指向給委派變數
+            PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            filterHandler += filters.ApplyContrast;
+
+            // 傳遞的委派變數
+            photoProcessor.Process("test", filterHandler);
         }
     }
 }
