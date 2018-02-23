@@ -34,6 +34,65 @@ Target: 方法所屬的類別
 
 如果自訂 Delegate 是參考到多個類別的方法，則屬性 target 會變成 null，多出一個 Non-Public members，裡面的 _invocationList 會有多個 object，object 屬性一樣都有 Method 跟 target。
 
+
+
+## 範例
+
+當貓叫，老鼠就跑。
+
+因為貓跟老鼠屬於不同的類別，所以透過委派讓貓與老鼠有動作關聯
+
+```c#
+// 類別貓
+public class Cat
+{
+    // 宣告委派類型
+    public delegate void CatShoutEventHandler();
+    // 宣告委派事件
+    public CatShoutEventHandler catshou;
+        
+    public void Shout()
+    {
+        Console.WriteLine("喵!");
+        catshout();
+    }
+}
+
+// 類別 老鼠
+public class Mouse
+{
+    public void Run()
+    {
+        Console.WriteLine("有貓快跑！");
+    }
+}
+
+// 執行類別
+class Program
+{
+    static void Main(string[] args)
+    {
+        var cat = new Cat();
+        var mouse1 = new Mouse();
+        var mouse2 = new Mouse();
+        
+		//將老鼠逃跑方法登記到貓叫的委派中
+        cat.catshout += mouse1.Run;
+        cat.catshout += mouse2.Run；
+
+        cat.Shout();
+    }
+}
+
+/* 結果：
+喵！
+有貓快跑！
+有貓快跑！
+*/
+```
+
+
+
 ## .NET 定義的委派
 
 在 .NET 在 generic 有定義好兩種 Delegate，因此可以先考慮使用 .NET 的不用先自己定義。
@@ -47,6 +106,53 @@ Target: 方法所屬的類別
   System.Func<in T, out TResult>
   System.Func<in T, ... , in T16, out TResult>
 ```
+
+### 範例改寫
+
+```c#
+// 類別貓
+public class Cat
+{
+    public void Shout(Action catshout)
+    {
+        Console.WriteLine("喵!");
+        catshout();
+    }
+}
+
+// 類別 老鼠
+public class Mouse
+{
+    public void Run()
+    {
+        Console.WriteLine("有貓快跑！");
+    }
+}
+
+// 執行類別
+class Program
+{
+    static void Main(string[] args)
+    {
+        var cat = new Cat();
+        var mouse1 = new Mouse();
+        var mouse2 = new Mouse();
+
+        Action catshout = mouse1.Run;
+        catshout += mouse2.Run;
+        
+        cat.Shout(catshout);
+    }
+}
+
+/* 結果：
+喵！
+有貓快跑！
+有貓快跑！
+*/
+```
+
+
 
 
 
