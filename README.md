@@ -35,6 +35,9 @@ Target: 方法所屬的類別
 如果自訂 Delegate 是參考到多個類別的方法，則屬性 target 會變成 null，多出一個 Non-Public members，裡面的 _invocationList 會有多個 object，object 屬性一樣都有 Method 跟 target。
 
 
+Delegate 在不同的 C# 版本有不同的寫法，可參考如下
+https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/delegates/how-to-declare-instantiate-and-use-a-delegate　
+
 
 ## 範例
 
@@ -166,5 +169,5 @@ Use a delegate when
 - The caller doesn't need to access other properties or methods on the object implementing the method.
 
 
-
+> Delegate 可視為方法介面，進階思考在於是否需要抽象為介面
 
